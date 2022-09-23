@@ -1,0 +1,54 @@
+//
+//  CMPConsentV1Constant.h
+//  GDPR
+//
+
+#ifndef CMPConsentV1Constant_h
+#define CMPConsentV1Constant_h
+
+static int V1_VERSION_BIT_OFFSET = 0;
+static int V1_VERSION_BIT_LENGTH = 6;
+
+static int V1_CREATED_BIT_OFFSET = 6;
+static int V1_CREATED_BIT_LENGTH = 36;
+
+static int V1_LAST_UPDATED_BIT_OFFSET = 42;
+static int V1_LAST_UPDATED_BIT_LENGTH = 36;
+
+static int V1_CMP_ID_BIT_OFFSET = 78;
+static int V1_CMP_ID_BIT_LENGTH = 12;
+
+static int V1_CMP_VERSION_BIT_OFFSET = 90;
+static int V1_CMP_VERSION_BIT_LENGTH = 12;
+
+static int V1_CONSENT_SCREEN_BIT_OFFSET = 102;
+static int V1_CONSENT_SCREEN_BIT_LENGTH = 6;
+
+static int V1_CONSENT_LANGUAGE_BIT_OFFSET = 108;
+static int V1_CONSENT_LANGUAGE_BIT_LENGTH = 12;
+
+static int V1_VENDOR_LIST_BIT_OFFSET = 120;
+static int V1_VENDOR_LIST_BIT_LENGTH = 12;
+
+static int V1_PURPOSES_ALLOWED_BIT_OFFSET = 132;
+static int V1_PURPOSES_ALLOWED_BIT_LENGTH = 24;
+
+static int V1_MAX_VENDOR_ID_BIT_OFFSET = 156;
+static int V1_MAX_VENDOR_ID_BIT_LENGTH = 16;
+
+static int V1_ENCODING_TYPE_BIT = 172;
+
+static int V1_BIT_FIELD_BIT_OFFSET = 173;
+
+static int V1_DEFAULT_CONSENT_BIT = 173;
+
+static int V1_NUM_ENTRIES_BIT_OFFSET = 174;
+static int V1_NUM_ENTRIES_BIT_LENGTH = 12;
+
+static int V1_SINGLE_VENDOR_ID_BIT_LENGTH = 16;
+
+static int V1_START_VENDOR_ID_BIT_LENGTH = 16;
+
+static int V1_END_VENDOR_ID_BIT_LENGTH = 16;
+
+#endif /* CMPConsentConstant_h */
