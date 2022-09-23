@@ -211,7 +211,9 @@ static bool error = FALSE;
   if (request.URL.absoluteString.lowercaseString.length > 0
 	  && ![CmpUtils validateCmpLayerUrl:request.URL]
 	  && ![request.URL.absoluteString containsString:@"about:blank"]) {
-	//[[UIApplication sharedApplication] openURL:request.URL options:@{} completionHandler:nil];
+	    if ([request.URL.absoluteString containsString:@"wg-gesucht.de"]) {
+          	[[UIApplication sharedApplication] openURL:request.URL options:@{} completionHandler:nil];
+      	    }
 	decisionHandler(WKNavigationActionPolicyCancel);
   } else {
 	decisionHandler(WKNavigationActionPolicyAllow);
