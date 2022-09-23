@@ -3,6 +3,12 @@
 //  GDPR
 //
 
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
 #import "CmpLayerViewController.h"
 #import "CMPActivityIndicatorView.h"
 #import "CmpUtils.h"
@@ -211,9 +217,12 @@ static bool error = FALSE;
   if (request.URL.absoluteString.lowercaseString.length > 0
 	  && ![CmpUtils validateCmpLayerUrl:request.URL]
 	  && ![request.URL.absoluteString containsString:@"about:blank"]) {
-	    if ([request.URL.absoluteString containsString:@"wg-gesucht.de"]) {
-          	[[UIApplication sharedApplication] openURL:request.URL options:@{} completionHandler:nil];
-      	    }
+	    if ([request.URL.absoluteString containsString:@"https://cdn.consentmanager.net/delivery/crossdomain.html"] &&
+            SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"14.0")) {
+            // do nothing
+        } else {
+            [[UIApplication sharedApplication] openURL:request.URL options:@{} completionHandler:nil];
+        }
 	decisionHandler(WKNavigationActionPolicyCancel);
   } else {
 	decisionHandler(WKNavigationActionPolicyAllow);
