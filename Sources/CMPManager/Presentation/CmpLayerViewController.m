@@ -211,7 +211,7 @@ static bool error = FALSE;
   if (request.URL.absoluteString.lowercaseString.length > 0
 	  && ![CmpUtils validateCmpLayerUrl:request.URL]
 	  && ![request.URL.absoluteString containsString:@"about:blank"]) {
-	[[UIApplication sharedApplication] openURL:request.URL options:@{} completionHandler:nil];
+	//[[UIApplication sharedApplication] openURL:request.URL options:@{} completionHandler:nil];
 	decisionHandler(WKNavigationActionPolicyCancel);
   } else {
 	decisionHandler(WKNavigationActionPolicyAllow);
